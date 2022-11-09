@@ -1,6 +1,7 @@
 module.exports = {
   testEnvironment: 'jsdom',
   testPathIgnorePatterns: ['/node_modules/', '/.next/'],
+  moduleDirectories: ['src'],
   collectCoverage: true,
   collectCoverageFrom: [
     'src/**/*.ts(x)?',
