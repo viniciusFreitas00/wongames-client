@@ -8,7 +8,11 @@ import * as S from './styles'
 import { Logo } from 'components/Logo'
 import { Button } from 'components/Button'
 
-export function Menu() {
+export type MenuProps = {
+  username?: string
+}
+
+export function Menu({ username }: MenuProps) {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -36,17 +40,26 @@ export function Menu() {
         <S.MenuNav>
           <S.MenuLink href="#">Home</S.MenuLink>
           <S.MenuLink href="#">Explorer</S.MenuLink>
+
+          {!!username && (
+            <>
+              <S.MenuLink href="#">My account</S.MenuLink>
+              <S.MenuLink href="#">Wishlist</S.MenuLink>
+            </>
+          )}
         </S.MenuNav>
 
-        <S.RegisterBox>
-          <Button fullWidth size="large">
-            Log in now
-          </Button>
-          <span>or</span>
-          <S.CreateAccount href="#" title="Sing Up">
-            Sing Up
-          </S.CreateAccount>
-        </S.RegisterBox>
+        {!username && (
+          <S.RegisterBox>
+            <Button fullWidth size="large">
+              Log in now
+            </Button>
+            <span>or</span>
+            <S.CreateAccount href="#" title="Sing Up">
+              Sing Up
+            </S.CreateAccount>
+          </S.RegisterBox>
+        )}
       </S.MenuFull>
     </S.Wrapper>
   )
