@@ -1,12 +1,17 @@
 import { Button } from 'components/Button'
 import * as S from './styles'
 
+import { RibbonColors, RibbonSizes, Ribbon } from 'components/Ribbon'
+
 export type BannerProps = {
   img: string
   title: string
   subtitle: string
   buttonLabel: string
   buttonLink: string
+  ribbon?: string
+  ribbonColor?: RibbonColors
+  ribbonSize?: RibbonSizes
 }
 
 export function Banner({
@@ -14,7 +19,10 @@ export function Banner({
   title,
   subtitle,
   buttonLabel,
-  buttonLink
+  buttonLink,
+  ribbon,
+  ribbonColor,
+  ribbonSize
 }: BannerProps) {
   return (
     <S.Wrapper>
@@ -29,6 +37,12 @@ export function Banner({
           {buttonLabel}
         </Button>
       </S.Caption>
+
+      {ribbon && (
+        <Ribbon color={ribbonColor} size={ribbonSize}>
+          {ribbon}
+        </Ribbon>
+      )}
     </S.Wrapper>
   )
 }
