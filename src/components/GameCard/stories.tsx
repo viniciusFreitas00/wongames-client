@@ -10,7 +10,11 @@ export default {
     developer: 'Rockstar Games',
     img: 'https://source.unsplash.com/user/willianjusten/300x140',
     price: 'R$ 235,00',
-    promotionalPrice: 'R$ 200,00'
+    promotionalPrice: 'R$ 200,00',
+    favorite: true
+  },
+  argTypes: {
+    onFav: { action: 'clicked' }
   },
   parameters: {
     backgrounds: {
