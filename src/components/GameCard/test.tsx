@@ -29,4 +29,29 @@ describe('<GameCard />', () => {
 
     expect(screen.getByText(/235,00/i)).toBeInTheDocument()
   })
+
+  it('should render price in label', () => {
+    renderWithTheme(<GameCard {...props} />)
+
+    expect(screen.getByText(/235,00/i)).not.toHaveStyle({
+      'text-decoration': 'line-through'
+    })
+
+    expect(screen.getByText(/235,00/i)).toHaveStyle({
+      'background-color': '#3CD3C1'
+    })
+  })
+
+  it('should render a line-through in price when promotional', () => {
+    renderWithTheme(
+      <GameCard {...props} price="R$ 200,00" promotionalPrice="R$ 15,00" />
+    )
+    expect(screen.getByText(/200,00/i)).toHaveStyle({
+      'text-decoration': 'line-through'
+    })
+
+    expect(screen.getByText(/15,00/i)).not.toHaveStyle({
+      'text-decoration': 'line-through'
+    })
+  })
 })
