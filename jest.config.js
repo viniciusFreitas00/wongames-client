@@ -9,5 +9,6 @@ module.exports = {
     '!src/styles/*'
   ],
   coveragePathIgnorePatterns: ['_app.tsx', '_document.tsx'],
-  setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts']
+  setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts'],
+  modulePaths: ['<rootDir>/src/', '<rootDir>/.jest']
 }
