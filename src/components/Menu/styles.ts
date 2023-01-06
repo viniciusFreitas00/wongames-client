@@ -63,6 +63,7 @@ export const MenuLink = styled.a`
         position: absolute;
         display: block;
         height: 0.3rem;
+
         background-color: ${theme.colors.primary};
         animation: hoverAnimation 0.2s forwards;
       }
@@ -91,15 +92,17 @@ export const MenuFull = styled.nav<MenuFullProps>`
     flex-direction: column;
     justify-content: space-between;
     background: ${theme.colors.white};
-    position: absolute;
 
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
 
+    z-index: ${theme.layers.menu};
+    position: fixed;
     height: 100vh;
     overflow: hidden;
+
     transition: opacity 0.3s ease-in-out;
     opacity: ${isOpen ? 1 : 0};
     pointer-events: ${isOpen ? 'all' : 'none'};
