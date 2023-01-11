@@ -1,13 +1,16 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 
 import { Checkbox } from '.'
+import { renderWithTheme } from 'utils/tests/helper'
 
 describe('<Checkbox />', () => {
-  it('should render the heading', () => {
-    const { container } = render(<Checkbox />)
+  it('should render with a label', () => {
+    renderWithTheme(<Checkbox label="checkbox label" labelFor="check" />)
 
-    // expect(screen.getByRole('heading', { name: /Checkbox/i })).toBeInTheDocument()
+    expect(screen.getByRole('checkbox')).toBeInTheDocument()
 
-    // expect(container.firstChild).toMatchSnapshot()
+    expect(screen.getByLabelText(/checkbox label/i)).toBeInTheDocument()
+
+    expect(screen.getByText(/checkbox label/i)).toHaveAttribute('for', 'check')
   })
 })
